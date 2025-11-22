@@ -1,0 +1,18 @@
+[
+    "onehot__seller_type_Individual",
+    "onehot__seller_type_Trustmark Dealer",
+    "onehot__fuel_type_Diesel",
+    "onehot__fuel_type_Electric",
+    "onehot__fuel_type_LPG",
+    "onehot__fuel_type_Petrol",
+    "onehot__transmission_type_Manual",
+    "remainder__vehicle_age",
+    "remainder__km_driven",
+    "remainder__mileage",
+    "remainder__engine",
+    "remainder__max_power",
+    "remainder__seats",
+    "remainder__car_name_freq",
+    "remainder__brand_freq",
+    "remainder__model_freq"
+]
