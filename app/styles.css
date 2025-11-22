@@ -1,0 +1,488 @@
+/* ==========================================
+   SMARTCARPRICE – ULTRA THEME v2 ✨
+   Sleek glassmorphism, neon glow & motion
+   Created by Batuhan Başoda
+========================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap");
+
+:root {
+  --bg-start: #0a1124;
+  --bg-end: #101b3f;
+  --card: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #101b3f;
+  --muted: #101b3f;
+  --accent: #101b3f;
+  --accent-2: #38bdf8;
+  --glow: rgba(37, 99, 235, 0.4);
+  --shadow-lg: 0 25px 45px rgba(0, 0, 0, 0.45);
+  --blur-bg: blur(16px);
+}
+
+/* ---------- BACKGROUND ---------- */
+body {
+  background: radial-gradient(
+      1400px 900px at 15% 15%,
+      rgba(139, 92, 246, 0.2),
+      transparent 70%
+    ),
+    radial-gradient(
+      1000px 800px at 85% 25%,
+      rgba(34, 211, 238, 0.15),
+      transparent 70%
+    ),
+    linear-gradient(180deg, var(--bg-start), var(--bg-end));
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  filter: blur(90px);
+  z-index: -1;
+  opacity: 0.35;
+  animation: floatGlow 18s infinite ease-in-out alternate;
+}
+body::before {
+  background: radial-gradient(circle, var(--accent), transparent 70%);
+  left: -120px;
+  bottom: -120px;
+}
+body::after {
+  background: radial-gradient(circle, var(--accent-2), transparent 70%);
+  right: -120px;
+  top: -120px;
+}
+@keyframes floatGlow {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate(40px, -30px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-40px, 30px);
+    opacity: 0.35;
+  }
+}
+
+/* ---------- GLOBAL TEXT ---------- */
+html,
+body,
+[class*="stMarkdown"],
+[class*="stText"],
+[data-testid*="st"],
+label,
+p,
+span,
+div,
+small,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #101b3f !important;
+}
+
+[data-testid="stMetricValue"],
+[data-testid="stMetricDelta"],
+[data-testid="stMetricLabel"] {
+  color: #101b3f !important;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #101b3f !important;
+  opacity: 1 !important;
+}
+
+[data-baseweb="select"] div,
+[data-baseweb="select"] span,
+[data-baseweb="tab"],
+[data-baseweb="tab"]:hover {
+  color: #101b3f !important;
+}
+
+/* ---------- HEADINGS ---------- */
+h1 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 3.4rem;
+  letter-spacing: -0.02em;
+  margin: 1.4rem 0 0.6rem;
+  background: linear-gradient(
+    90deg,
+    #e0f2fe 0%,
+    #60a5fa 25%,
+    #2563eb 60%,
+    #1e3a8a 100%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+h2,
+h3 {
+  text-align: center;
+  color: #a5b4fc;
+  margin: 0 0 0.8rem;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 189, 248, 0.3),
+    transparent
+  );
+  margin: 2.4rem 0;
+}
+
+/* ---------- INPUTS ---------- */
+.stTextInput input,
+.stNumberInput input,
+.stTextArea textarea,
+.stSelectbox div[data-baseweb="select"] > div,
+.stMultiSelect div[data-baseweb="select"] > div {
+  background-color: brown !important;
+  border: 1px solid #d1bfa7 !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease-in-out;
+}
+
+input:focus,
+textarea:focus,
+div[role="combobox"]:focus-within {
+  outline: none !important;
+  border-color: #d1bfa7 !important;
+
+  border-radius: 10px !important;
+  background-color: white !important;
+}
+
+[data-baseweb="popover"] ul {
+  background-color: #1e1b4b !important;
+  border: 1px solid #1e1b4b !important;
+  border-radius: 10px !important;
+  backdrop-filter: blur(12px);
+}
+[data-baseweb="popover"] ul li,
+[data-baseweb="popover"] div {
+  color: #fff !important;
+}
+[data-baseweb="popover"] li:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.stSelectbox svg,
+.stMultiSelect svg {
+  color: #d1bfa7 !important;
+}
+
+label,
+.stMarkdown p {
+  color: #dcdcdc !important;
+  font-weight: 500;
+}
+
+/* ---------- BUTTONS ---------- */
+button,
+.stButton > button {
+  background: linear-gradient(
+    135deg,
+    var(--fb-600),
+    var(--fb-500) 55%,
+    var(--fb-400) 130%
+  );
+  background-color: #2563eb !important;
+  color: #fff !important;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  padding: 0.9rem 1.4rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  transition: transform 180ms ease, box-shadow 200ms ease, filter 200ms ease;
+  box-shadow: 0 10px 28px var(--fb-glow);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+}
+
+button:hover,
+.stButton > button:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.05);
+  box-shadow: 0 16px 36px var(--fb-glow);
+}
+
+button:active {
+  transform: translateY(0);
+  background: linear-gradient(135deg, #4b3228, #7a4a2e);
+  box-shadow: 0 8px 20px rgba(92, 64, 51, 0.3);
+}
+
+/* ---------- NUMBER INPUT BUTTONS ---------- */
+[data-testid="stNumberInput"] button {
+  background: #1e1b4b !important;
+  border: 1px solid #1e1b4b !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(178, 34, 34, 0.4);
+}
+[data-testid="stNumberInput"] button:hover {
+  background: darkblue !important;
+}
+[data-testid="stNumberInput"] button:active {
+  background: darkblue !important;
+  transform: scale(0.95);
+}
+
+/* ---------- PREDICTION BOX ---------- */
+.prediction-box {
+  background-color: #2563eb !important;
+  color: #fff !important;
+  font-size: 1.6rem;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 30px 0;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  backdrop-filter: var(--blur-bg);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* ---------- METRICS ---------- */
+[data-testid="stMetric"] {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 0 auto !important;
+}
+[data-testid="stMetricValue"] {
+  color: #e0f2fe !important;
+  font-weight: 800;
+  font-size: 1.8rem;
+  text-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+}
+[data-testid="stMetricLabel"],
+[data-testid="stMetricDelta"] {
+  color: #93c5fd !important;
+  font-weight: 600;
+  text-align: center;
+  font-size: 2rem !important;
+}
+
+/* ---------- TABS ---------- */
+[data-baseweb="tab"] {
+  border-radius: 14px !important;
+  background: var(--card) !important;
+  backdrop-filter: var(--blur-bg);
+  transition: all 0.25s ease;
+}
+[data-baseweb="tab"]:hover {
+  filter: brightness(1.15);
+  color: var(--accent-2) !important;
+  transform: scale(1.03);
+}
+
+/* ---------- CARDS ---------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: var(--shadow-lg);
+  transition: all 250ms ease;
+  backdrop-filter: var(--blur-bg);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1657632843433-e6a8b7451ac6?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2FsbHBhcGVyJTIwNGt8ZW58MHx8MHx8fDA%3D");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.75;
+  filter: blur(4px) brightness(0.9);
+  z-index: -1;
+  border-radius: 22px;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 25px 55px rgba(139, 92, 246, 0.25);
+}
+.card h3 {
+  color: #c7d2fe !important;
+  text-align: center;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+.card p,
+.card li {
+  color: #e0f2fe !important;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* ---------- BACKGROUND IMAGES ---------- */
+
+[data-testid="stHorizontalBlock"]:has(
+    [data-testid="stTextInput"],
+    [data-testid="stNumberInput"],
+    [data-testid="stSelectbox"],
+    [data-testid="stMultiSelect"],
+    textarea
+  ) {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+[data-testid="stHorizontalBlock"]:has(
+    [data-testid="stTextInput"],
+    [data-testid="stNumberInput"],
+    [data-testid="stSelectbox"],
+    [data-testid="stMultiSelect"],
+    textarea
+  )::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://i.imgur.com/BVSMYb9.jpeg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  z-index: -1;
+  filter: blur(6px) brightness(0.8);
+  border-radius: 20px;
+}
+
+[data-testid="stHorizontalBlock"]:has(
+    [data-testid="stMetric"],
+    [data-testid="stLabel"],
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricDelta"]
+  ) {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+[data-testid="stHorizontalBlock"]:has(
+    [data-testid="stMetric"],
+    [data-testid="stLabel"],
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricDelta"]
+  )::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://i.imgur.com/ZtqRqQB.jpeg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+  z-index: -1;
+  filter: blur(6px) brightness(0.8);
+  border-radius: 20px;
+}
+
+/* ---------- FOOTER --------- */
+.footer-wrapper {
+  margin-top: 60px;
+  position: relative;
+  padding: 40px 0;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+  overflow: hidden;
+}
+
+.footer-text {
+  font-size: 20px;
+  font-weight: 500;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+}
+
+.footer-text b {
+  color: firebrick !important;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+  .prediction-box {
+    font-size: 1.3rem;
+  }
+  .card {
+    padding: 18px;
+  }
+  button {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.1rem;
+  }
+}
+
+/* ---------- ANIMATION ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
